@@ -38,7 +38,6 @@ const Home = () => {
   return (
     <SafeAreaView style={{flex: 1}}>
       <View style={styles.container}>
-        <Text style={styles.textStyle}>Enter Text to Generate QR Code </Text>
         <TextInput
           style={styles.textInput}
           onChangeText={typeText => settypeText(typeText)}
@@ -94,15 +93,6 @@ const styles = StyleSheet.create({
     backgroundColor: 'white',
     textAlign: 'center',
     padding: 10,
-  },
-  titleStyle: {
-    fontSize: 20,
-    textAlign: 'center',
-    margin: 10,
-  },
-  textStyle: {
-    textAlign: 'center',
-    margin: 10,
   },
   textInput: {
     flexDirection: 'row',
