@@ -1,43 +1,49 @@
 import * as React from 'react';
-import {Button, View, Text} from 'react-native';
+import {Text, View} from 'react-native';
 import {NavigationContainer} from '@react-navigation/native';
-import {createNativeStackNavigator} from '@react-navigation/native-stack';
+import {createMaterialTopTabNavigator} from '@react-navigation/material-top-tabs';
 import Home from './screens/Home';
 import Details from './screens/Details';
 
-const Stack = createNativeStackNavigator();
+const Tab = createMaterialTopTabNavigator();
 
-function App() {
+export default function App() {
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName="Home">
-        <Stack.Screen
+      <Tab.Navigator
+        screenOptions={{
+          tabBarActiveTintColor: '#ffffff',
+          tabBarInactiveTintColor: '#cdcdcd',
+          tabBarLabelStyle: {
+            textAlign: 'center',
+            color: 'white',
+          },
+          tabBarIndicatorStyle: {
+            borderBottomColor: 'green',
+            borderBottomWidth: 2,
+          },
+          tabBarStyle: {
+            backgroundColor: 'purple',
+            borderRadius: 10,
+          },
+        }}>
+        <Tab.Screen
           name="Home"
           component={Home}
           options={({navigation, route}) => ({
             title: 'QR Code Generator',
-            headerStyle: {
-              backgroundColor: 'purple',
-            },
             headerTintColor: '#fff',
             headerTitleStyle: {
               fontWeight: 'bold',
             },
             headerTitleAlign: 'center',
-            headerRight: () => (
-              <Button
-                onPress={() => navigation.navigate('Details')}
-                title="Details"
-                color="#c575c9"
-              />
-            ),
           })}
         />
-        <Stack.Screen
+        <Tab.Screen
           name="Details"
           component={Details}
           options={({navigation, route}) => ({
-            title: 'Details',
+            title: 'Bar Code Generator',
             headerStyle: {
               backgroundColor: 'purple',
             },
@@ -48,9 +54,7 @@ function App() {
             headerTitleAlign: 'center',
           })}
         />
-      </Stack.Navigator>
+      </Tab.Navigator>
     </NavigationContainer>
   );
 }
-
-export default App;
