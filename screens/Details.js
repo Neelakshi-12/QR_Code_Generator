@@ -28,7 +28,6 @@ const Details = () => {
   const [savedImagePath, setSavedImagePath] = useState('');
   const full = useRef();
   const viewRef = useRef();
-
   // const takeScreenShot = () => {
   //   captureScreen({
   //     format: 'jpg',
